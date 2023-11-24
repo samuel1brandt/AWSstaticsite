@@ -1,0 +1,13 @@
+version: 0.1
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - npm install -g aws-cdk
+  build:
+    commands:
+      - aws s3 sync . s3://staticwebsite-sbrandt --delete
+artifacts:
+  files:
+    - '**/*'
