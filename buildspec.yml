@@ -2,12 +2,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      python: 3.8
     commands:
-      - npm install -g aws-cdk
+      - pip install pytidylib
   build:
     commands:
-      - aws s3 sync . s3://staticwebsite-sbrandt --delete
+      - python tidy.py
 artifacts:
   files:
     - '**/*'
+  base-directory: output
